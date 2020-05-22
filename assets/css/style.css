@@ -5,3 +5,20 @@
 .form-inline2 {
     display: none;
 }
+
+.jumbotron {
+    background-image: url(https://tse1.mm.bing.net/th?id=OIP.tMt6YeELMcsi4_YaKQ_85wHaD_&pid=Api&P=0&w=303&h=164);    
+    height: auto;
+    width: auto;
+    overflow: hidden;
+}
+
+.display-3 {
+color:white;
+}
+.lead {
+    color: white;
+}
+.body {
+    color:teal;
+}
