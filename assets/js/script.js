@@ -29,6 +29,7 @@ function bandArtist(artist){
 
 $("#submit-band").on("click", function(event){
     event.preventDefault();
+    console.log("clicked");
     var bandSearch = $(".band-submit").val().trim();
     // console.log(bandSearch);
     bandArtist(bandSearch);
@@ -39,32 +40,35 @@ $("#movies").on("click", () => {
     $(".form-inline2").show(300);
     $(".form-inline").hide();
 })
-function movieSearch(title){
-
+function movieSearch(){
+    var title = $(".movie-submit").val();
     var movieURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
     $.ajax({
         url: movieURL,
         method: "GET"
-    }).then(function(res){
-        console.log(res);
-        var movieDiv = $("<div id='movie-div'</div>");
-        var rating = response.Rated;
-        var pOne = $("<p>").text("Rating: " + rating);
-        movieDiv.append(pOne);
-        var released = response.Released;
-        var pTwo = $("<p>").text("Released: " + released);
-        movieDiv.append(pTwo);
-        var plot = response.Plot;
-        var pThree = $("<p>").text("Plot: " + plot);
-        movieDiv.append(pThree);
-        var imgURL = response.Poster;
-        var image = $("<img>").attr("src", imgURL);
-        movieDiv.append(image);
-        $("#movie-div").prepend(movieDiv);
+    }).then(function(res2){
+        console.log(res2);
+        
+        var result2 = `
+        <div class="card">
+        <div class="card-body">
+          <p class="card-text">${res.name}</p>
+        </div>
+        <img src="${res.poster}" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">${res.ratings}</p>
+        </div>
+      </div>`
+
+        $("#movie-div").empty();    
+        $("#movie-div").append(result2)
+         
+        console.log(result2);
       });
 
 $("#submit-movie").on("click", function(event){
     event.preventDefault();
+    console.log("clicked");
     var movieSubmit = $(".movie-submit").val().trim();
     console.log(movieSubmit);
     movieSearch(movieSubmit);
