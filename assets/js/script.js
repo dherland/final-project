@@ -1,3 +1,8 @@
+
+$("#test").on("click", movieSearch);
+
+
+
 $("#bands").on("click", () => {
     $(".form-inline").show(300);
     $(".form-inline2").hide();
@@ -33,7 +38,7 @@ $("#submit-band").on("click", function(event){
     var bandSearch = $(".band-submit").val().trim();
     // console.log(bandSearch);
     bandArtist(bandSearch);
-})
+});
 
 
 $("#movies").on("click", () => {
@@ -66,6 +71,10 @@ function movieSearch(){
         console.log(result2);
       });
 
+
+    
+    
+    // movieSearch
 $("#submit-movie").on("click", function(event){
     event.preventDefault();
     console.log("clicked");
